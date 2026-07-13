@@ -1,108 +1,95 @@
-# vinext-starter
+# Human Systems Lab
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+> I examine the systems people depend on, identify where incentives, access or processes fail, and redesign them to work better for everyone.
 
-## Prerequisites
+**Human Systems Lab is a Berlin-based civic systems studio for small, measurable experiments that reduce friction, unlock support and help institutions learn faster.**
 
-- Node.js `>=22.13.0`
-- Linux with `flock`, `curl`, and GNU `timeout`
+[Explore the live prototypes](https://impact-sprint-good.hyperspacekid.chatgpt.site) · [View the project library](https://impact-sprint-good.hyperspacekid.chatgpt.site/projects)
 
-## Sites Lifecycle
+## The method
 
-The Sites lifecycle CLI runs the locked dependency install before returning this checkout. Edit the source under `app/`, then checkpoint when a coherent milestone is ready to inspect or share. The remote Sites builder runs `npm run build` against the pushed commit. Do not repeat install or build as a normal pre-checkpoint step.
+1. **Observe** — understand people, power, incentives and friction.
+2. **Diagnose** — find the constraint that matters most.
+3. **Redesign** — create a fairer and simpler intervention.
+4. **Test** — run the smallest real experiment and measure it.
+5. **Scale** — expand only what demonstrably works better.
 
-This starter does not use `wrangler.jsonc`.
+AI may help translate, cluster and summarize. It must not make political, legal, medical or eligibility decisions, quietly rank people, or replace accountable human judgment.
 
-`install:ci` is intentionally a single, non-retrying `npm ci`. It refuses a concurrent install for the same project, consumes a matching image-seeded npm cache with `--prefer-offline` while retaining registry fallback for a missing cache object, otherwise downloads and verifies the complete vinext tarball recorded in `package-lock.json`, limits npm to one socket, and terminates a stalled install. `build` applies a short timeout and then validates the Sites artifact. These helpers target Linux and use GNU `timeout`; they are not native macOS scripts.
+## Shipped prototypes
 
-Scripts that need writable project-scoped home, npm, XDG, and temporary paths use `scripts/sites-env.sh`. The `dev` and `start` scripts honor the caller's runtime environment and keep Wrangler logs inside the checkout. The generated `.sites-runtime/` directory is disposable and ignored by Git.
+| Prototype | What it tests | Live |
+| --- | --- | --- |
+| **Prototype Library** | A public home for experiments, evidence and collaboration | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/projects) |
+| **Gemeinsam Berlin** | Multilingual participation that surfaces cross-group agreement instead of rewarding polarization | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/gemeinsam) |
+| **OnceDE** | Consent-based reuse of verified information so people do not repeatedly submit the same data | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/once-only) |
+| **Presidential Hackathon Room** | A proposal space for adapting lessons from Taiwan and Estonia to Germany | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/hackathon) |
+| **Human Systems Lab** | The portfolio, method and collaboration model behind the work | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/lab) |
 
-## Included Shape
+## Five impact experiments worth testing next
 
-- edit site code under `app/`
-- `app/chatgpt-auth.ts` provides optional dispatch-owned ChatGPT sign-in helpers
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/index.ts` reads the D1 binding from the Cloudflare Worker environment
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+These are deliberately small enough to test with real people before building a platform.
 
-## Workspace Auth Headers
+| Priority | Experiment | Smallest real test | First proof of impact | Who should pay |
+| --- | --- | --- | --- | --- |
+| **1** | **Anspruch Direkt** — a multilingual guide from life situation to likely public support, document checklist and trusted human handoff | Help 10 people with one benefit journey in 7 days | Applications started, euros of potential support identified, time saved | Foundation, municipality, welfare organization or employer — never the beneficiary |
+| **2** | **Impact Sprint** — a 72-hour donation, membership or volunteer funnel for one social organization | Ship one real campaign and send qualified traffic | Donations, members or volunteer applications gained | The organization or a sponsoring company, for a transparent fixed pilot fee |
+| **3** | **PflegeKlar** — an administrative relief plan for family caregivers, without medical advice | Support 5 families through one recurring care task in 7 days | Time to first useful service, applications initiated, burden score before/after | Care organization, insurer, hospital, employer or foundation |
+| **4** | **DirektHilfe** — verified urgent needs under €300, funded by sponsors directly through trusted partner organizations | Publish and fulfill 10 vetted needs with one partner | Time from verified need to relief, euros delivered, needs fulfilled | Sponsor-side service fee, corporate partnership or foundation grant |
+| **5** | **Fix One Thing Berlin** — residents report friction, AI translates and clusters it, and a responsible institution publicly acts or explains | One neighborhood, one issue, 100 participants, one accountable response | Shared priorities found, response time and one demonstrably removed friction | District, civic foundation or research partner |
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+## Where we start
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+We run two tracks together:
 
-Treat the full name as optional and fall back to email when it is absent:
+- **Revenue engine:** sell and deliver the first **Impact Sprint** in 72 hours.
+- **Impact flagship:** test **Anspruch Direkt** with 10 people and one trusted social partner within 7 days.
 
-```tsx
-import { headers } from "next/headers";
+The sprint finances the work. The flagship proves that the work creates real relief. We do not begin by building a national platform; we begin with one partner, one painful journey and evidence from real use.
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+## How impact is measured
 
-  const displayName = fullName ?? email;
-  // ...
-}
+Every experiment needs a short feedback loop:
+
+- **Relief:** What became easier, faster or less stressful?
+- **Access:** Who reached support who otherwise might not have?
+- **Outcome:** What application, donation, placement or institutional response happened?
+- **Equity:** Who was still excluded, and why?
+- **Cost:** What did one successful outcome require?
+- **Learning:** What should be changed, stopped or scaled next?
+
+## Ethical monetization
+
+- People seeking essential support are not the customer.
+- Institutions, foundations, employers and sponsors pay for measurable public value.
+- Pilot prices and success criteria are agreed in advance.
+- Personal data is minimized, purpose-bound and never sold.
+- Funding never buys hidden influence over results or participation.
+- Public-interest components should remain auditable and reusable wherever possible.
+
+## Why this matters now
+
+- Germany had **5.7 million people in need of care** at the end of 2023; **86% were cared for at home**, often by relatives. [Destatis](https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/12/PD24_478_224.html)
+- Germany's food banks support around **1.5 million people** with the work of **77,000 volunteers**, showing both immense need and the leverage of civil society. [Tafel Deutschland](https://www.tafel.de/)
+- Public and philanthropic funders already support digital transformation, participation and stronger volunteer structures — including dedicated programs from the [German Foundation for Engagement and Volunteering](https://www.deutsche-stiftung-engagement-und-ehrenamt.de/foerderung/).
+
+## Technology
+
+TypeScript · React · Vinext · Cloudflare Workers · D1/SQLite · Drizzle · privacy-conscious analytics
+
+```bash
+npm ci
+npm run dev
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+Node.js 22.13 or newer is recommended. See `package.json` for build, test and validation commands.
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+## Collaborate
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+We are looking for social organizations, foundations, public servants, civic technologists, researchers and responsible funders willing to test one concrete improvement with real users.
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+[Propose a collaboration or nominate an organization](https://github.com/mikelninh/human-systems-lab/issues)
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+---
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Diagnostic Commands
-
-- `npm run install:ci`: perform the one bounded lockfile install
-- `npm run dev`: start the Vite/Vinext development server
-- `npm run build`: build and validate the deployable Sites artifact
-- `npm run start`: start the built Vinext application
-- `npm test`: build, validate, and verify the rendered development-preview metadata
-- `npm run validate:artifact`: recheck an existing artifact's manifest and ESM `default.fetch` export
-- `npm run db:generate`: generate Drizzle migrations after schema changes
-
-Use build and validation commands for targeted diagnosis after a remote failure, not as part of the normal checkpoint path.
-
-The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
-
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+**Status:** public working prototypes and test proposals, not finished public services. The tools do not provide legal, medical or benefits decisions.
