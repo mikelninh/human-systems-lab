@@ -2,7 +2,13 @@ type D1Like = {
   prepare(query: string): { bind(...values: unknown[]): { run(): Promise<unknown> } };
 };
 
-const allowed = new Set(["page_view", "form_opened", "cause_selected", "goal_selected", "lead_submitted", "lead_error", "lab_view", "projects_view", "consensus_view", "once_view", "hackathon_view"]);
+const allowed = new Set([
+  "page_view", "form_opened", "cause_selected", "goal_selected", "lead_submitted", "lead_error",
+  "lab_view", "projects_view", "consensus_view", "once_view", "hackathon_view",
+  "anspruch_view", "anspruch_start", "anspruch_result", "anspruch_feedback", "anspruch_partner_lead",
+  "language_selected", "official_link_opened", "sprint_view", "sprint_goal_selected",
+  "sprint_form_opened", "sprint_lead", "share_clicked",
+]);
 
 export async function POST(request: Request) {
   try {

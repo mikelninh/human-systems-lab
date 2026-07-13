@@ -20,6 +20,8 @@ AI may help translate, cluster and summarize. It must not make political, legal,
 
 | Prototype | What it tests | Live |
 | --- | --- | --- |
+| **Anspruch Direkt** | Whether a multilingual, anonymous orientation flow helps people reach a useful official next step | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/anspruch-direkt) |
+| **Impact Sprint 72h** | Whether a fixed-price, measurable funnel offer creates real buying and nomination intent | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-sprint) |
 | **Prototype Library** | A public home for experiments, evidence and collaboration | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/projects) |
 | **Gemeinsam Berlin** | Multilingual participation that surfaces cross-group agreement instead of rewarding polarization | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/gemeinsam) |
 | **OnceDE** | Consent-based reuse of verified information so people do not repeatedly submit the same data | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/once-only) |
@@ -32,8 +34,8 @@ These are deliberately small enough to test with real people before building a p
 
 | Priority | Experiment | Smallest real test | First proof of impact | Who should pay |
 | --- | --- | --- | --- | --- |
-| **1** | **Anspruch Direkt** — a multilingual guide from life situation to likely public support, document checklist and trusted human handoff | Help 10 people with one benefit journey in 7 days | Applications started, euros of potential support identified, time saved | Foundation, municipality, welfare organization or employer — never the beneficiary |
-| **2** | **Impact Sprint** — a 72-hour donation, membership or volunteer funnel for one social organization | Ship one real campaign and send qualified traffic | Donations, members or volunteer applications gained | The organization or a sponsoring company, for a transparent fixed pilot fee |
+| **1** | **Anspruch Direkt** — a shipped multilingual guide from life situation to an official starting point and trusted human handoff | Recruit 10 people for one benefit journey in 7 days | Official paths opened, applications started, time saved | Foundation, municipality, welfare organization or employer — never the beneficiary |
+| **2** | **Impact Sprint** — a shipped, fixed-price 72-hour donation, membership or volunteer funnel offer | Win one €750 pilot and send qualified traffic | Paid pilot intent, donations, members or volunteer applications gained | The organization or a sponsoring company, for a transparent fixed pilot fee |
 | **3** | **PflegeKlar** — an administrative relief plan for family caregivers, without medical advice | Support 5 families through one recurring care task in 7 days | Time to first useful service, applications initiated, burden score before/after | Care organization, insurer, hospital, employer or foundation |
 | **4** | **DirektHilfe** — verified urgent needs under €300, funded by sponsors directly through trusted partner organizations | Publish and fulfill 10 vetted needs with one partner | Time from verified need to relief, euros delivered, needs fulfilled | Sponsor-side service fee, corporate partnership or foundation grant |
 | **5** | **Fix One Thing Berlin** — residents report friction, AI translates and clusters it, and a responsible institution publicly acts or explains | One neighborhood, one issue, 100 participants, one accountable response | Shared priorities found, response time and one demonstrably removed friction | District, civic foundation or research partner |

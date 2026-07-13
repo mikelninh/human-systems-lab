@@ -4,17 +4,19 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const projects = [
+  { title: "Anspruch Direkt", type: "Immediate Relief", status: "Live demand test", text: "Mehrsprachiger, anonymer Kurz-Check: von der Lebenslage zu einer offiziellen Anlaufstelle und einem klaren nächsten Schritt.", href: "/anspruch-direkt", partner: "Sozialberatung · Stiftung · Kommune" },
+  { title: "Impact Sprint 72h", type: "Revenue Engine", status: "Paid pilot test", text: "Ein bepreister 72-Stunden-Funnel für mehr Spenden, Mitglieder oder Volunteers – inklusive echter Conversion-Messung.", href: "/impact-sprint", partner: "NGO · Stiftung · CSR" },
   { title: "Gemeinsam Berlin", type: "Demokratie", status: "Live test", text: "Mehrsprachige Beteiligung, echte Gruppen-Aggregate und sichtbarer Konsens – ohne Kommentarspalte.", href: "/gemeinsam", partner: "Verwaltung · Demokratie · Stiftung" },
   { title: "OnceDE Familienstart", type: "Public Service", status: "Live demo", text: "Einwilligung, sichere Vorausfüllung, Widerruf und nachvollziehbare Datenzugriffe mit fiktiven Registern.", href: "/once-only", partner: "Verwaltung · Sozialberatung · GovTech" },
   { title: "Human Systems Lab", type: "Portfolio", status: "Live", text: "Methode, Systemebenen, Pilotportfolio, internationale Muster und ethische Monetarisierung.", href: "/lab", partner: "Stiftung · Arbeitgeber · Partner" },
-  { title: "Impact Sprint", type: "Nonprofit Capacity", status: "Live", text: "Ein Förderer finanziert ein dauerhaft nutzbares digitales System für eine soziale Organisation.", href: "/", partner: "Stiftung · NGO · CSR" },
+  { title: "Impact Sprint 7 Tage", type: "Nonprofit Capacity", status: "Concept archive", text: "Die größere Förderer-Version: Ein Sponsor finanziert ein dauerhaft nutzbares digitales System für eine soziale Organisation.", href: "/", partner: "Stiftung · NGO · CSR" },
   { title: "Fairness Compass", type: "Wealth & Fairness", status: "Live interaction", text: "Ein normativer Vermögensvorschlag wird sichtbar, veränderbar und offen für begründeten Dissens.", href: "/lab#fairness", partner: "Forschung · Demokratie · Medien" },
   { title: "Presidential Hackathon 2026", type: "Opportunity", status: "Pitch room", text: "Drei passende Einreichungen, Bewertung und empfohlene Auswahl für Taiwans International Track.", href: "/hackathon", partner: "Team · Mentor · Feldpartner" },
 ];
 
 const archive = [
   ["Truth Scope Connect", "Food-system transparency", "GitHub vorhanden · privat"],
-  ["Familienkompass DE/VN", "Mehrsprachiger Leistungswegweiser", "Prototyp · Konsolidierung offen"],
+  ["Familienkompass DE/VN", "Mehrsprachiger Leistungswegweiser", "In Anspruch Direkt konsolidiert"],
   ["CivicPilot", "Applied-AI für öffentliche Workflows", "Portfolio-Prototyp · Konsolidierung offen"],
   ["GitLaw", "Nachvollziehbare Gesetzgebung", "Konzept/Prototyp · Konsolidierung offen"],
   ["Public-Money-Mirror", "Öffentliche Geldflüsse", "Konzept/Prototyp · Konsolidierung offen"],
@@ -50,7 +52,7 @@ export default function ProjectsPage() {
     <section className="archive" id="archive">
       <div className="section-heading"><p className="eyebrow">Preservation map</p><h2>Was bereits existiert – und was wir noch konsolidieren.</h2><p>Dein verbundenes GitHub-Konto zeigt viele Repositories, aber die neuesten Sites-Prototypen liegen derzeit als veröffentlichte Site-Versionen vor. Diese Übersicht verhindert, dass gute Ideen unsichtbar werden.</p></div>
       <div className="archive-list">{archive.map(([title, area, state]) => <div key={title}><strong>{title}</strong><span>{area}</span><b>{state}</b></div>)}</div>
-      <div className="archive-note"><b>Empfohlene nächste Archivstruktur</b><p>Ein kanonisches Repository „human-systems-lab“ mit einem Ordner pro Case Study, Screenshots, Demo-Link, Problem, Hypothese, Ergebnis und nächstem Test. Bis der richtige GitHub-Owner festgelegt ist, verändert dieser Hub keine privaten Repositories.</p></div>
+      <div className="archive-note"><b>Kanonisches öffentliches Repository</b><p>Der veröffentlichte Quellstand und die Case Studies werden unter <a href="https://github.com/mikelninh/human-systems-lab" target="_blank" rel="noreferrer">mikelninh/human-systems-lab ↗</a> erhalten. Jeder Test dokumentiert Problem, Hypothese, Messsignal, Ergebnis und nächsten Schritt.</p></div>
     </section>
     <footer><Link className="wordmark" href="/projects">PROTOTYPE LIBRARY</Link><p>Observe · Diagnose · Redesign · Test · Scale</p><Link href="/lab">Human Systems Lab</Link></footer>
   </main>;

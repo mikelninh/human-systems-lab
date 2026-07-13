@@ -21,6 +21,19 @@ export const events = sqliteTable("events", {
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
+export const pilotLeads = sqliteTable("pilot_leads", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  project: text("project").notNull(),
+  role: text("role").notNull(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  organisation: text("organisation").notNull().default(""),
+  choice: text("choice").notNull().default(""),
+  locale: text("locale").notNull().default("de"),
+  message: text("message").notNull().default(""),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
 export const fairnessFeedback = sqliteTable("fairness_feedback", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   bottomShare: integer("bottom_share").notNull(),
