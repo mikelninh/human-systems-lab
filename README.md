@@ -20,6 +20,7 @@ AI may help translate, cluster and summarize. It must not make political, legal,
 
 | Prototype | What it tests | Live |
 | --- | --- | --- |
+| **Impact Eval Suite** | Whether an AI-enabled service can prove safer behavior and connect adoption to relief, access, agency, equity and public value | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-eval) |
 | **Anspruch Direkt** | Whether a multilingual, anonymous orientation flow helps people reach a useful official next step | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/anspruch-direkt) |
 | **Impact Sprint 72h** | Whether a fixed-price, measurable funnel offer creates real buying and nomination intent | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-sprint) |
 | **Prototype Library** | A public home for experiments, evidence and collaboration | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/projects) |
@@ -59,6 +60,23 @@ Every experiment needs a short feedback loop:
 - **Equity:** Who was still excluded, and why?
 - **Cost:** What did one successful outcome require?
 - **Learning:** What should be changed, stopped or scaled next?
+
+### Impact Eval Suite
+
+The public [Impact Eval Suite](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-eval) turns these principles into an inspectable working artifact:
+
+- Five synthetic, multilingual public-service situations act as reproducible fixtures.
+- A deterministic rubric scores **access, relief, agency, safety and multiplication**.
+- Access and safety are hard release gates; a good average cannot hide an unsafe failure.
+- Failures become new fixtures so the system does not quietly forget who it failed.
+- An adjustable public-value case translates observed pilot rates into time saved, additional useful paths, meaningful actions, equity-gap change, cost per outcome and people enabled to help someone else.
+- Demonstration values are clearly labeled and must be replaced with observed, privacy-preserving pilot evidence before impact claims are made.
+
+Run the evaluation tests directly:
+
+```bash
+node --test tests/impact-eval.test.mjs
+```
 
 ## Ethical monetization
 

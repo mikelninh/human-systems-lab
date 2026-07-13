@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const projects = [
+  { title: "Impact Eval Suite", type: "AI Quality & Public Value", status: "Live working proof", text: "Reproduzierbare Tests und ein interaktiver Value Case: Misst Zugang, Entlastung, Agency, Sicherheit und ob Menschen andere aktivieren können.", href: "/impact-eval", partner: "AI Product · Public Sector · Stiftung" },
   { title: "Anspruch Direkt", type: "Immediate Relief", status: "Live demand test", text: "Mehrsprachiger, anonymer Kurz-Check: von der Lebenslage zu einer offiziellen Anlaufstelle und einem klaren nächsten Schritt.", href: "/anspruch-direkt", partner: "Sozialberatung · Stiftung · Kommune" },
   { title: "Impact Sprint 72h", type: "Revenue Engine", status: "Paid pilot test", text: "Ein bepreister 72-Stunden-Funnel für mehr Spenden, Mitglieder oder Volunteers – inklusive echter Conversion-Messung.", href: "/impact-sprint", partner: "NGO · Stiftung · CSR" },
   { title: "Gemeinsam Berlin", type: "Demokratie", status: "Live test", text: "Mehrsprachige Beteiligung, echte Gruppen-Aggregate und sichtbarer Konsens – ohne Kommentarspalte.", href: "/gemeinsam", partner: "Verwaltung · Demokratie · Stiftung" },

@@ -7,7 +7,8 @@ const allowed = new Set([
   "lab_view", "projects_view", "consensus_view", "once_view", "hackathon_view",
   "anspruch_view", "anspruch_start", "anspruch_result", "anspruch_feedback", "anspruch_partner_lead",
   "language_selected", "official_link_opened", "sprint_view", "sprint_goal_selected",
-  "sprint_form_opened", "sprint_lead", "share_clicked",
+  "sprint_form_opened", "sprint_lead", "share_clicked", "eval_view", "eval_scenario_selected",
+  "eval_run", "eval_export", "eval_share",
 ]);
 
 export async function POST(request: Request) {
