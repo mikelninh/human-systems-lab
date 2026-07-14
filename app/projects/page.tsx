@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const projects = [
+  { title: "Gesetzes-Check", type: "Policy Evaluation", status: "Live public test", text: "Gesetze als System-Releases testen: offizielle Regeln, realistische Lebenslagen, Stability-/Safety-Gates und ein messbarer Outcome-Plan.", href: "/gesetzes-check", partner: "Politik · Verwaltung · Forschung · Zivilgesellschaft" },
   { title: "Impact Eval Suite", type: "AI Quality & Public Value", status: "Live working proof", text: "Reproduzierbare Tests und ein interaktiver Value Case: Misst Zugang, Entlastung, Agency, Sicherheit und ob Menschen andere aktivieren können.", href: "/impact-eval", partner: "AI Product · Public Sector · Stiftung" },
   { title: "Anspruch Direkt", type: "Immediate Relief", status: "Live demand test", text: "Mehrsprachiger, anonymer Kurz-Check: von der Lebenslage zu einer offiziellen Anlaufstelle und einem klaren nächsten Schritt.", href: "/anspruch-direkt", partner: "Sozialberatung · Stiftung · Kommune" },
   { title: "Impact Sprint 72h", type: "Revenue Engine", status: "Paid pilot test", text: "Ein bepreister 72-Stunden-Funnel für mehr Spenden, Mitglieder oder Volunteers – inklusive echter Conversion-Messung.", href: "/impact-sprint", partner: "NGO · Stiftung · CSR" },

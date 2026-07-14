@@ -20,6 +20,7 @@ AI may help translate, cluster and summarize. It must not make political, legal,
 
 | Prototype | What it tests | Live |
 | --- | --- | --- |
+| **Gesetzes-Check** | Whether a law clears realistic stability, access, distribution and public-value gates before political intentions are treated as impact | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/gesetzes-check) |
 | **Impact Eval Suite** | Whether an AI-enabled service can prove safer behavior and connect adoption to relief, access, agency, equity and public value | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-eval) |
 | **Anspruch Direkt** | Whether a multilingual, anonymous orientation flow helps people reach a useful official next step | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/anspruch-direkt) |
 | **Impact Sprint 72h** | Whether a fixed-price, measurable funnel offer creates real buying and nomination intent | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-sprint) |

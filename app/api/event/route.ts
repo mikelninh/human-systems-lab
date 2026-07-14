@@ -8,7 +8,8 @@ const allowed = new Set([
   "anspruch_view", "anspruch_start", "anspruch_result", "anspruch_feedback", "anspruch_partner_lead",
   "language_selected", "official_link_opened", "sprint_view", "sprint_goal_selected",
   "sprint_form_opened", "sprint_lead", "share_clicked", "eval_view", "eval_scenario_selected",
-  "eval_run", "eval_export", "eval_share",
+  "eval_run", "eval_export", "eval_share", "policy_view", "policy_variant", "policy_run",
+  "policy_case", "policy_scenario", "policy_share", "policy_export",
 ]);
 
 export async function POST(request: Request) {
