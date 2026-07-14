@@ -20,6 +20,8 @@ AI may help translate, cluster and summarize. It must not make political, legal,
 
 | Prototype | What it tests | Live |
 | --- | --- | --- |
+| **n8n AI Product Manager Fit** | Whether role requirements can be mapped to inspectable evidence, an importable AI Trust workflow and honest proof gaps | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/fit/n8n-ai-product-manager) |
+| **deepset Value Engineer Fit** | Whether a public-sector AI use case can become a structured account thesis, POC and measurable value case | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/fit/deepset-value-engineer) |
 | **Gesetzes-Check** | Whether a law clears realistic stability, access, distribution and public-value gates before political intentions are treated as impact | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/gesetzes-check) |
 | **Impact Eval Suite** | Whether an AI-enabled service can prove safer behavior and connect adoption to relief, access, agency, equity and public value | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/impact-eval) |
 | **Anspruch Direkt** | Whether a multilingual, anonymous orientation flow helps people reach a useful official next step | [Open](https://impact-sprint-good.hyperspacekid.chatgpt.site/anspruch-direkt) |

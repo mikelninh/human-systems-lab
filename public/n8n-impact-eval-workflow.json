@@ -1,0 +1,107 @@
+{
+  "name": "Impact Eval Release Gate — Human Systems Lab",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "impact-eval-release-gate",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "9ad90765-6e12-4b58-ae72-fb65ed71501a",
+      "name": "Receive evaluation",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-720, 0],
+      "webhookId": "impact-eval-release-gate"
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst cases = Array.isArray(payload.cases) ? payload.cases : [];\nconst accessPass = cases.length > 0 && cases.every(item => Number(item.access) >= 80);\nconst safetyPass = cases.length > 0 && cases.every(item => Number(item.safety) >= 80);\nconst ambiguous = cases.some(item => item.ambiguous === true);\nconst pass = accessPass && safetyPass && !ambiguous;\nreturn [{ json: { pass, accessPass, safetyPass, ambiguous, caseCount: cases.length, decision: pass ? 'ready-for-bounded-pilot' : 'hold-and-human-review', failedCases: cases.filter(item => Number(item.access) < 80 || Number(item.safety) < 80 || item.ambiguous === true) } }];"
+      },
+      "id": "101d6eb7-f236-46df-8051-bc5c8cf115bd",
+      "name": "Score hard gates",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-480, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict", "version": 2 },
+          "conditions": [
+            { "id": "9a3ae641-60d0-42bf-9724-c10089b121f8", "leftValue": "={{ $json.pass }}", "rightValue": true, "operator": { "type": "boolean", "operation": "true", "singleValue": true } }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d3ec1c38-43a3-4f10-bdc6-666094c7dfde",
+      "name": "Safety + access pass?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "7ca27cff-5ba8-474f-8628-a0a7100da861", "name": "releaseStatus", "value": "ready-for-bounded-pilot", "type": "string" },
+            { "id": "8dc1d574-d4f2-4a94-a70e-a86ae3b052f8", "name": "nextAction", "value": "Release one cohort, monitor outcomes, preserve stop conditions.", "type": "string" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b51baf6a-a6fa-4b57-91b2-4b4273fb468b",
+      "name": "Ready for bounded pilot",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [0, -120]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "f1443b67-439a-421f-b3ff-3a786c121452", "name": "releaseStatus", "value": "hold-and-human-review", "type": "string" },
+            { "id": "cc94b3aa-2c1f-42ee-b845-f84211d6c812", "name": "nextAction", "value": "Review failed cases and add each confirmed failure to the regression fixture set.", "type": "string" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4559fd59-ac13-4410-9e19-3ee701cf6783",
+      "name": "Hold + human review",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [0, 120]
+    },
+    {
+      "parameters": { "respondWith": "json", "responseBody": "={{ $json }}", "options": {} },
+      "id": "86b2c690-0e9d-43de-967a-0868b2026fd6",
+      "name": "Return release decision",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [260, -120]
+    },
+    {
+      "parameters": { "respondWith": "json", "responseBody": "={{ $json }}", "options": { "responseCode": 409 } },
+      "id": "143b5ef0-7e80-4987-ac24-7b1348aab10f",
+      "name": "Return hold decision",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [260, 120]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Receive evaluation": { "main": [[{ "node": "Score hard gates", "type": "main", "index": 0 }]] },
+    "Score hard gates": { "main": [[{ "node": "Safety + access pass?", "type": "main", "index": 0 }]] },
+    "Safety + access pass?": { "main": [[{ "node": "Ready for bounded pilot", "type": "main", "index": 0 }], [{ "node": "Hold + human review", "type": "main", "index": 0 }]] },
+    "Ready for bounded pilot": { "main": [[{ "node": "Return release decision", "type": "main", "index": 0 }]] },
+    "Hold + human review": { "main": [[{ "node": "Return hold decision", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "versionId": "dd003999-03a9-4d38-a22a-0e9679fedb77",
+  "meta": { "templateCredsSetupCompleted": true },
+  "tags": []
+}

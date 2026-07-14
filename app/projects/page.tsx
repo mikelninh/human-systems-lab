@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const projects = [
+  { title: "n8n · AI Product Manager", type: "Role Fit Case", status: "Application-ready", text: "AI-Trust-Fit, Requirement-to-Proof-Mapping, importierbarer n8n Eval-Workflow und vorbereitete Bewerbungsantworten.", href: "/fit/n8n-ai-product-manager", partner: "Career Tutor · n8n Product Team" },
+  { title: "deepset · Value Engineer", type: "Role Fit Case", status: "Application-ready", text: "Public-Sector-Account-These mit Stakeholdern, Haystack-Lösungsbild, POC-Gates und interaktivem Value Case.", href: "/fit/deepset-value-engineer", partner: "Career Tutor · deepset Customer Engineering" },
   { title: "Gesetzes-Check", type: "Policy Evaluation", status: "Live public test", text: "Gesetze als System-Releases testen: offizielle Regeln, realistische Lebenslagen, Stability-/Safety-Gates und ein messbarer Outcome-Plan.", href: "/gesetzes-check", partner: "Politik · Verwaltung · Forschung · Zivilgesellschaft" },
   { title: "Impact Eval Suite", type: "AI Quality & Public Value", status: "Live working proof", text: "Reproduzierbare Tests und ein interaktiver Value Case: Misst Zugang, Entlastung, Agency, Sicherheit und ob Menschen andere aktivieren können.", href: "/impact-eval", partner: "AI Product · Public Sector · Stiftung" },
   { title: "Anspruch Direkt", type: "Immediate Relief", status: "Live demand test", text: "Mehrsprachiger, anonymer Kurz-Check: von der Lebenslage zu einer offiziellen Anlaufstelle und einem klaren nächsten Schritt.", href: "/anspruch-direkt", partner: "Sozialberatung · Stiftung · Kommune" },

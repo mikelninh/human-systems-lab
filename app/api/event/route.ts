@@ -10,6 +10,7 @@ const allowed = new Set([
   "sprint_form_opened", "sprint_lead", "share_clicked", "eval_view", "eval_scenario_selected",
   "eval_run", "eval_export", "eval_share", "policy_view", "policy_variant", "policy_run",
   "policy_case", "policy_scenario", "policy_share", "policy_export",
+  "role_fit_view", "role_fit_share", "role_fit_copy", "role_asset_download", "role_value_change",
 ]);
 
 export async function POST(request: Request) {
